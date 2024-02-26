@@ -9,7 +9,6 @@ import WeatherIcon from "@/components/WeatherIcon";
 
 import axios from "axios";
 import { format, fromUnixTime, parseISO } from "date-fns";
-import Image from "next/image";
 import { useQuery } from "react-query";
 import { useAtom } from "jotai";
 import { useEffect } from "react";
@@ -75,7 +74,7 @@ interface WeatherData {
 }
 
 export default function Home() {
-  const [place, setPlace] = useAtom(placeAtom);
+  const [place] = useAtom(placeAtom);
   const [loadingCity] = useAtom(loadingCityAtom);
 
   const { isLoading, error, data, refetch } = useQuery<WeatherData>(

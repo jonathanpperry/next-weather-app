@@ -9,6 +9,8 @@ import { loadingCityAtom, placeAtom } from "@/app/atom";
 
 type Props = { location?: string };
 
+const API_KEY = process.env.NEXT_PUBLIC_WEATHER_KEY;
+
 export default function Navbar({ location }: Props) {
   const [city, setCity] = useState("");
   const [error, setError] = useState("");
@@ -16,7 +18,7 @@ export default function Navbar({ location }: Props) {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  const [place, setPlace] = useAtom(placeAtom);
+  const [, setPlace] = useAtom(placeAtom);
   const [_, setLoadingCity] = useAtom(loadingCityAtom);
 
   async function handleInputChange(value: string) {
